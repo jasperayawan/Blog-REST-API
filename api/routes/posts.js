@@ -81,9 +81,9 @@ router.get('/:id', async (req,res) => {
 router.get('/', async (req,res) => {
     const username = req.query.user;
     const catName = req.query.cat;
-    let posts;
     try{
-
+        let posts;
+        
         if(username){
             posts = await Post.find({username})
         }else if(catName){
