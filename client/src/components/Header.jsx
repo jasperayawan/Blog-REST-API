@@ -19,8 +19,8 @@ export default function Header() {
 
   return (
     <>
-    {user ? (
-    <header className="w-full bg-white shadow-md py-2 fixed top-0 left-0">
+    {user ? (   
+    <header className="w-full bg-white shadow-md py-2 fixed top-0 left-0 z-50">
       <nav className="flex justify-between items-center px-4">
         
           <>

@@ -1,10 +1,8 @@
-import HeroSection from "../components/HeroSection";
 import Post from "../components/Post";
-import Header from "../components/header";
-import dataPost from "../components/PostData";
 import { useContext, useEffect, useState } from "react";
 import Axios from "axios";
 import { Context } from "../context/Context";
+import dataPost from "../components/PostData";
 
 export default function Layout() {
   const [post, setPost] = useState([]);
@@ -18,20 +16,22 @@ export default function Layout() {
     displayPost();
   }, []);
 
+
   return (
     <>
       
       <div className="flex relative px-4 justify-center items-start">
-        <div className="min-h-screen mt-5 -z-10">
-            <div className="md:pr-4 max-w-4xl md:grid-cols-2 grid lg:grid-cols-3 gap-2">
+        <div className="min-h-screen mt-5">
+            <div className="md:pr-4 max-w-4xl md:grid-cols-1 grid  gap-2">
             {post.map((dataItem, index) => (
                 <Post
                 key={index}
                 id={index}
-                imageSrc="../src/assets/coffee4.jpg"
+                imageSrc={dataItem.photo}
                 title={dataItem.title}
                 date={dataItem.createdAt}
                 desc={dataItem.desc}
+                
                 />
             ))}
             </div>
