@@ -7,8 +7,10 @@ const authRoute = require('./routes/auth')
 const userRoute = require('./routes/users')
 const postRoute = require('./routes/posts')
 const categoriesRoute = require('./routes/categories')
+const cors = require('cors')
 const multer = require('multer')
 
+app.use(cors())
 dotenv.config();
 const port = process.env.PORT;
 
@@ -21,9 +23,9 @@ const storage = multer.diskStorage({
     destination:(req,file,callback) => {
         callback(null, "images")
     },filename:(req,file,callback) => {
-        callback(null, "hello.jpeg");
+        callback(null, req.body.name);
     },
-})
+})  
 
 //upload file in image storage
 
