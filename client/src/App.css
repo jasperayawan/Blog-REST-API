@@ -4,3 +4,10 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.login_register{
+    background-image: url('../src/assets/coffee3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

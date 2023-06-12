@@ -13,7 +13,7 @@ export default function Header(){
     return(
         <header className='w-full bg-white shadow-md py-2 fixed top-0 left-0'>
             <nav className='flex justify-between items-center px-4'>
-                <div className="logo">Blog App</div>
+                <div className="logo"><Link to='/'>Blog App</Link></div>
                 <ul className='hidden md:flex gap-2'>
                     <li>
                         <Link>Home</Link>
@@ -27,8 +27,8 @@ export default function Header(){
                 </ul>
 
                 <div className='hidden md:flex gap-2'>
-                    <button className='border-2 border-zinc-800 px-3 rounded-md'>Login</button>
-                    <button className='bg-zinc-800 text-white px-3 rounded-md'>Register</button>
+                    <Link to='/login' className='border-2 border-zinc-800 px-3 rounded-md'>Login</Link>
+                    <Link to='/register' className='bg-zinc-800 text-white px-3 rounded-md'>Register</Link>
                 </div>
 
                 <button onClick={clickHandling} className='sm:flex md:hidden'>
@@ -48,8 +48,8 @@ export default function Header(){
                             </ul>
 
                             <div className='flex flex-col gap-2'>
-                                <button className='border-2 rounded-md border-stone-500 py-1 px-4'>Login</button>
-                                <button className='bg-stone-500 rounded-md text-white py-1 px-4'>Register</button>
+                                <Link to='/login' className='border-2 rounded-md border-stone-500 py-1 px-4'>Login</Link>
+                                <Link to='/register' className='bg-stone-500 rounded-md text-white py-1 px-4'>Register</Link>
                             </div>
                         </div>
                 
