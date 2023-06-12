@@ -16,7 +16,7 @@ export default function Header(){
                 <div className="logo"><Link to='/'>Blog App</Link></div>
                 <ul className='hidden md:flex gap-2'>
                     <li>
-                        <Link>Home</Link>
+                        <Link to='/'>Home</Link>
                     </li>
                     <li>
                         <Link>Blogs</Link>
