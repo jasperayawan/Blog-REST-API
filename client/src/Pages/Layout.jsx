@@ -2,11 +2,13 @@ import HeroSection from "../components/HeroSection";
 import Post from "../components/Post";
 import Header from "../components/header";
 import dataPost from "../components/PostData";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Axios from "axios";
+import { Context } from "../context/Context";
 
 export default function Layout() {
   const [post, setPost] = useState([]);
+  const {user} = useContext(Context)
 
   useEffect(() => {
     const displayPost = async () => {
@@ -15,10 +17,10 @@ export default function Layout() {
     };
     displayPost();
   }, []);
+
   return (
     <>
-      <Header />
-      <HeroSection />
+      
       <div className="flex relative px-4 justify-center items-start">
         <div className="min-h-screen mt-5 -z-10">
             <div className="md:pr-4 max-w-4xl md:grid-cols-2 grid lg:grid-cols-3 gap-2">
@@ -42,7 +44,7 @@ export default function Layout() {
                     <img src="../src/assets/coffee3.jpg" alt="" className="w-full h-full object-cover"/>
                     <div className="h-[50px] flex gap-3 justify-start items-center">
                         <img src="../src/assets/coffee3.jpg" alt="" className="rounded-full w-[40px] h-[40px] object-cover"/>
-                        <span className="font-semibold">Ejayawan22@gmail.com</span>
+                        <span className="font-semibold">{user.email}</span>
                     </div>
                     <p>I am a passionate software developer/game developer/web designer/ with a deep interest in software engineer</p>
                     <h2 className="font-semibold">Favorites</h2>

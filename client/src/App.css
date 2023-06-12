@@ -11,3 +11,8 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.loginButton:disabled{
+    cursor: not-allowed;
+    background-color: rgb(45, 45, 78);
+}

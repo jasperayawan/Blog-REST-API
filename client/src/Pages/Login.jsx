@@ -1,37 +1,37 @@
 import {Link, useNavigate} from 'react-router-dom'
 import '../App.css'
 import Header from '../components/header';
-import { useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import Axios from 'axios';
+import { Context } from '../context/Context';
+import '../App.css'
 
 export default function Login() {
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
+  const emailRef = useRef();
+  const passRef = useRef();
   const Navigate = useNavigate();
+
+  const { user,dispatch, isFetching } = useContext(Context); 
 
     const loginUser = async (e) => {
       e.preventDefault();
 
-      const loginFetch = Axios.create({
-        baseURL: 'http://localhost:8000',
-        method: 'POST',
-        headers: {'Content-Type':'application/json'}
-      })
-
+      dispatch({type:"LOGIN_START"});
       try{
-        const response = await loginFetch.post('/api/auth/login',{
-          email,password
+        const response = await Axios.post('http://localhost:8000/api/auth/login',{
+          email: emailRef.current.value,
+          password: passRef.current.value
         })
-
+        dispatch({type:"LOGIN_SUCCESS", payload:response.data});
         if(response.status === 200){
-          Navigate('/')
+          Navigate('/home')
         }
       }
       catch(err){
-        console.log(err)
+        dispatch({type:"LOGIN_FAILURE"});
       }
 
-    }
+    };
 
     return (
       <div className="login_register min-h-screen flex justify-center items-center px-2">
@@ -49,22 +49,21 @@ export default function Login() {
                 <label className="font-semibold text-stone-500">Email</label>
                 <input
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    ref={emailRef}
                     placeholder="Email"
                     className="border-2 border-stone-400 rounded-md px-3"
                 />
                 <label className="font-semibold text-stone-500">Password</label>
                 <input
                     type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    ref={passRef}
                     placeholder="Password"
                     className="border-2 border-stone-400 rounded-md px-3"
                 />
                 <button
                     type="submit"
-                    className="bg-stone-800 w-full text-white rounded-md px-3 py-1"
+                    className="loginButton bg-stone-800 w-full text-white rounded-md px-3 py-1"
+                    disabled={isFetching}
                 >
                     Login
                 </button>

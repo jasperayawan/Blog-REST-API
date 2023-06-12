@@ -1,11 +1,12 @@
 import './App.css'
-import Layout from './Pages/Layout'
+import Home from './Pages/Home'
+import { ContextProvider } from './context/Context.jsx'
 
 function App() {
 
   return (
     <>
-      <Layout/>
+      <Home/>
     </>
   )
 }
