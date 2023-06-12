@@ -21,7 +21,7 @@ export default function Layout() {
       <HeroSection />
       <div className="flex relative px-4 justify-center items-start">
         <div className="min-h-screen mt-5 -z-10">
-            <div className="pr-4 max-w-4xl grid grid-cols-3 gap-2">
+            <div className="md:pr-4 max-w-4xl md:grid-cols-2 grid lg:grid-cols-3 gap-2">
             {post.map((dataItem, index) => (
                 <Post
                 key={index}
@@ -35,7 +35,7 @@ export default function Layout() {
             </div>
         </div>
 
-        <div className="sticky top-0  w-[300px] -z-10 pt-10">
+        <div className="hidden md:flex sticky top-0  w-[300px] -z-10 pt-10">
             <div className="flex flex-col gap-2">
                 <h1 className="text-center font-semibold">About me</h1>
                 <div className="w-full h-[200px] relative flex flex-col gap-4">
