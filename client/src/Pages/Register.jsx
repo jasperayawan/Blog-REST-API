@@ -35,13 +35,13 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center px-2">
-        <Header/>
+    <div className="">
       <form className='' onSubmit={registerUser}>
-        <div className="shadow-lg grid grid-cols-2 rounded-md max-w-[600px] mx-auto bg-white overflow-hidden">
-          <div>
-            <img src="../src/assets/coffee4.jpg" alt="" className="object-cover"/>
-          </div>
+        <div className="flex bg-white overflow-hidden">
+          <div className='left-img w-1/2 h-screen hidden md:block'>
+              <h1 className='text-white'>.</h1>
+            </div>
+          <div className='flex justify-center items-center h-screen md:w-1/2 w-full'>
           <div className="flex flex-col gap-3 p-4">
             <h1 className="font-bold text-lg text-stone-700 text-center">
               Register now!
@@ -52,7 +52,7 @@ export default function Register() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Username"
-              className="border-2 border-stone-400 rounded-md px-3"
+              className="border-2 border-stone-400 rounded-md px-3 py-1"
             />
             <label className="font-semibold text-stone-500">Email</label>
             <input
@@ -60,7 +60,7 @@ export default function Register() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="border-2 border-stone-400 rounded-md px-3"
+              className="border-2 border-stone-400 rounded-md px-3 py-1"
             />
             <label className="font-semibold text-stone-500">Password</label>
             <input
@@ -68,7 +68,7 @@ export default function Register() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="border-2 border-stone-400 rounded-md px-3"
+              className="border-2 border-stone-400 rounded-md px-3 py-1"
             />
             <button
               type="submit"
@@ -77,6 +77,7 @@ export default function Register() {
               Register
             </button>
             <Link to='/login' className='underline text-end'>Already have an account?</Link>
+          </div>
           </div>
         </div>
       </form>

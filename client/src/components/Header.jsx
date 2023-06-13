@@ -25,7 +25,7 @@ export default function Header() {
         
           <>
             <div className="logo">
-              <Link to="/home">Blog App</Link>
+              <Link to="/home" className="font-semibold">Blog App</Link>
             </div>
             <ul className="hidden md:flex gap-2">
               <li>
@@ -40,13 +40,13 @@ export default function Header() {
             </ul>
             <div className="hidden md:flex gap-2">
               <div className="flex justify-center items-center gap-2">
-                <Link onClick={handleLogout} to="/login">
+                <Link onClick={handleLogout} to="/login" className="ring-1 ring-slate-900 px-3 rounded-md hover:bg-slate-900 hover:text-zinc-200 hover:duration-300">
                   Logout
                 </Link>
                 <img
                   src={user.profilePic}
                   alt=""
-                  className="w-[40px] h-[40px] rounded-full object-cover"
+                  className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
                 />
                 <span>{user.username}</span>
               </div>
@@ -74,7 +74,7 @@ export default function Header() {
 
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col justify-center items-center gap-2">
-                  <Link onClick={handleLogout} to="/login">
+                  <Link onClick={handleLogout} to="/login" className="">
                     Logout
                   </Link>
                   <img
