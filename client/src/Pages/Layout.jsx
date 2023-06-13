@@ -43,7 +43,7 @@ export default function Layout() {
                 <div className="w-full h-[200px] relative flex flex-col gap-4">
                     <img src="../src/assets/coffee3.jpg" alt="" className="w-full h-full object-cover"/>
                     <div className="h-[50px] flex gap-3 justify-start items-center">
-                        <img src="../src/assets/coffee3.jpg" alt="" className="rounded-full w-[40px] h-[40px] object-cover"/>
+                        <img src={user.profilePic} alt="" className="rounded-full w-[40px] h-[40px] object-cover"/>
                         <span className="font-semibold">{user.email}</span>
                     </div>
                     <p>I am a passionate software developer/game developer/web designer/ with a deep interest in software engineer</p>

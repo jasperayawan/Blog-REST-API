@@ -34,10 +34,10 @@ export default function Login() {
     };
 
     return (
-      <div className="login_register min-h-screen flex justify-center items-center px-2">
+      <div className=" min-h-screen flex justify-center items-center px-2">
         <Header/>
         <form onSubmit={loginUser}>
-          <div className="grid grid-cols-2 rounded-md max-w-[600px] mx-auto bg-white overflow-hidden">
+          <div className="shadow-lg grid grid-cols-2 rounded-md max-w-[600px] mx-auto bg-white overflow-hidden">
             <div>
               <img src="../src/assets/coffee4.jpg" alt="" className="object-cover"/>
             </div>
