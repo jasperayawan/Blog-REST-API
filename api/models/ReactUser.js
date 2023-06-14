@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const {model} = mongoose;
 
 const reactSchema = new mongoose.Schema({
-    react: {type: Array, required: false},
-    username: {type: String, required: true}
+    react: {type: Array},
+    username: {type: String,}
 })
 
 const reactModel = model('React', reactSchema)

@@ -1,12 +1,24 @@
 import { useState } from "react"
 import {AiFillHeart,AiOutlineHeart} from 'react-icons/ai'
 import { formatISO9075 } from 'date-fns'
+import Axios from 'axios'
 
 export default function Post(props){
     const [reactPost,setReactPost] = useState(false)
+    const [isUserReact, setIsUserReact] = useState([])
 
-    const REACT = () => {
-        setReactPost(!reactPost)
+    const REACT = async() => {
+        
+        try{
+            const fetchData = await Axios.post('http://localhost:8000/api/reactuser')
+            console.log(fetchData)
+            setIsUserReact(fetchData.data)
+            setReactPost(!reactPost)
+        }
+        catch(err){
+            console.log(err)
+        }
+        
     }
     return(
         <section className="">
@@ -18,10 +30,15 @@ export default function Post(props){
                     <time className="text-zinc-400">{formatISO9075(new Date(props.date))}</time>
                     <p>{props.desc}</p>
                     <div>
-                    <button 
-                        type='button'
-                        onClick={REACT}
-                        className='cursor-pointer'>{ reactPost ? <AiFillHeart className="text-2xl text-red-500"/> : <AiOutlineHeart className="text-2xl text-red-500"/>}</button>    
+                    <div className="flex gap-2">
+                        <button 
+                            type='button'
+                            onClick={REACT}
+                            value={reactPost}
+                            className='cursor-pointer'>{ reactPost ? <AiFillHeart className="text-2xl text-red-500"/> : <AiOutlineHeart className="text-2xl text-red-500"/>}
+                        </button> 
+                    <span>{isUserReact.react}</span>  
+                    </div>   
                     </div> 
             </div>
         </section>
