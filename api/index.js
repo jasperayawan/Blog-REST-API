@@ -9,7 +9,8 @@ const postRoute = require('./routes/posts')
 const categoriesRoute = require('./routes/categories')
 const reactUserRoute = require('./routes/reactUsers')
 const cors = require('cors')
-const multer = require('multer')
+const multer = require('multer');
+const path = require("path");
 
 app.use(cors())
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+app.use('/images',express.static(path.join(__dirname,"/images")))
 
 const storage = multer.diskStorage({
     destination:(req,file,callback) => {
@@ -36,7 +38,7 @@ app.post('/api/upload', upload.single('file'),(req, res) => {
     res.status(200).json("File has been uploaded")
 })
 
-app.use('/api/auth', authRoute)
+app.use('/api/auth', authRoute) 
 app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
 app.use('/api/categories', categoriesRoute)

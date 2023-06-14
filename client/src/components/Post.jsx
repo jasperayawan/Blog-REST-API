@@ -6,6 +6,7 @@ import Axios from 'axios'
 export default function Post(props){
     const [reactPost,setReactPost] = useState(false)
     const [isUserReact, setIsUserReact] = useState([])
+    const PublicFolder = "localhost:5173/images/"
 
     const REACT = async() => {
         

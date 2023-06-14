@@ -29,13 +29,16 @@ export default function Header() {
             </div>
             <ul className="hidden md:flex gap-2">
               <li>
-                <Link to="/home">Home</Link>
+                <Link to="/home" className="font-semibold text-zinc-500">Home</Link>
               </li>
               <li>
-                <Link>Blogs</Link>
+                <Link className="font-semibold text-zinc-500">Blogs</Link>
               </li>
               <li>
-                <Link>Post</Link>
+                <Link className="font-semibold text-zinc-500">Post</Link>
+              </li>
+              <li>
+                  <Link to='/createpost' className="font-semibold text-zinc-500">Create/Post</Link>
               </li>
             </ul>
             <div className="hidden md:flex gap-2">
@@ -62,13 +65,16 @@ export default function Header() {
             >
               <ul className="">
                 <li>
-                  <Link>Home</Link>
+                  <Link className="font-semibold text-zinc-500">Home</Link>
                 </li>
                 <li>
-                  <Link>Blogs</Link>
+                  <Link className="font-semibold text-zinc-500">Blogs</Link>
                 </li>
                 <li>
-                  <Link>Post</Link>
+                  <Link className="font-semibold text-zinc-500">Post</Link>
+                </li>
+                <li>
+                  <Link to='/createpost' className="font-semibold text-zinc-500">Create/Post</Link>
                 </li>
               </ul>
 
